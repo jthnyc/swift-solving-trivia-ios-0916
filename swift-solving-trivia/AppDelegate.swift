@@ -12,11 +12,22 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
-    /*
      
-     write your function here
-     
-     */
-
+    func solveTrivia(combination: [String: String]) -> String {
+        
+        var theAnswer: String = " "
+        
+        for (states, capitals) in combination {
+            let alphabetsStates = Array(states.lowercaseString.characters)
+            let alphabetsCapitals = Array(capitals.lowercaseString.characters)
+            
+            let intersection = Array(Set(alphabetsStates).intersect(Set(alphabetsCapitals)))
+            
+            if intersection.isEmpty {
+                theAnswer = states
+            } 
+            
+        }
+           return theAnswer
+    }
 }
-
